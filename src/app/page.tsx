@@ -33,8 +33,8 @@ const ColectaWebsite = () => {
               <div className="text-2xl font-bold text-gray-900" style={{ fontFamily: 'Karla, sans-serif' }}>
                 Colecta
               </div>
-              <div className="ml-2 text-sm text-gray-500" style={{ fontFamily: 'Spectral, serif', fontWeight: '300' }}>
-                Quetzales
+              <div className="ml-2 text-sm text-emerald-600 font-medium" style={{ fontFamily: 'Spectral, serif', fontWeight: '300' }}>
+                Quetzales 🪶
               </div>
             </div>
             
@@ -94,76 +94,153 @@ const ColectaWebsite = () => {
       </nav>
 
       {/* Home Section */}
-      <section id="home" className="pt-16 pb-32 bg-gradient-to-br from-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 
-              className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight"
-              style={{ fontFamily: 'Karla, sans-serif' }}
-            >
-              Split Bills.
-              <br />
-              <span className="text-blue-600">Share Joy.</span>
-            </h1>
-            <p 
-              className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-3xl mx-auto"
-              style={{ fontFamily: 'Spectral, serif', fontWeight: '300' }}
-            >
-              The first free bill-splitting app designed for Central America. 
-              Connect through WhatsApp, pay through any bank, and never worry about 
-              who owes what again.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-blue-700 transition-colors flex items-center gap-2">
-                <Download size={20} />
-                Coming Soon
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="text-blue-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-blue-50 transition-colors flex items-center gap-2"
-              >
-                Learn More
-                <ArrowRight size={20} />
-              </button>
+      <section 
+        id="home" 
+        className="pt-16 pb-32 relative overflow-hidden min-h-screen"
+      >
+{/* Main Background Image (Clear on right) */}
+<div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(/quetzal.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center right',
+            backgroundRepeat: 'no-repeat'
+          }}
+        ></div>
+
+        {/* Sharp Bird Layer (Right 57%) */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(/quetzal.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center right',
+            backgroundRepeat: 'no-repeat',
+            filter: 'contrast(1.1) saturate(1.1) brightness(1.05) unsharp-mask(radius=1px, amount=150%)',
+            clipPath: 'polygon(43% 0, 100% 0, 100% 100%, 43% 100%)'
+          }}
+        ></div>
+
+        {/* Blurred Background (Left 43%) */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(/quetzal.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center right',
+            backgroundRepeat: 'no-repeat',
+            filter: 'blur(8px)',
+            clipPath: 'polygon(0 0, 43% 0, 53% 100%, 0 100%)'
+          }}
+        ></div>
+
+        {/* Content Overlay for Text Area */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to right, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.4) 70%, rgba(255,255,255,0.1) 100%)'
+          }}
+        ></div>
+
+        {/* Color Gradient Overlay */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to right, rgba(59,130,246,0.1) 0%, rgba(147,51,234,0.05) 50%, rgba(0,0,0,0) 70%)'
+          }}
+        ></div>
+        
+        {/* Decorative Birds */}
+        <div className="absolute top-20 left-10 opacity-15 animate-pulse">
+          <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-400 rounded-full"></div>
+        </div>
+        <div className="absolute bottom-40 left-32 opacity-15 animate-pulse" style={{ animationDelay: '2s' }}>
+          <div className="w-12 h-12 bg-gradient-to-br from-red-400 to-yellow-400 rounded-full"></div>
+        </div>
+        <div className="absolute top-1/3 left-1/4 opacity-10 animate-pulse" style={{ animationDelay: '4s' }}>
+          <div className="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full"></div>
+        </div>
+        
+        {/* Content Container - Positioned for left 60% */}
+        <div className="relative z-10 h-full flex items-center">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="lg:w-3/5 xl:w-1/2">
+              <div className="text-left pt-20 pb-12">
+                <h1 
+                  className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight"
+                  style={{ fontFamily: 'Karla, sans-serif' }}
+                >
+                  Split Bills.
+                  <br />
+                  <span className="text-blue-600">Share Joy.</span>
+                </h1>
+                <p 
+                  className="text-xl md:text-2xl text-gray-700 mb-12 leading-relaxed"
+                  style={{ fontFamily: 'Spectral, serif', fontWeight: '300' }}
+                >
+                  The first free bill-splitting app designed for Central America. 
+                  Connect through WhatsApp, pay through any bank, and never worry about 
+                  who owes what again.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 items-start">
+                  <button className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-blue-700 transition-colors flex items-center gap-2 shadow-lg">
+                    <Download size={20} />
+                    Coming Soon
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('about')}
+                    className="text-blue-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-blue-50 transition-colors flex items-center gap-2"
+                  >
+                    Learn More
+                    <ArrowRight size={20} />
+                  </button>
+                </div>
+              </div>
+
+              {/* Stats - Repositioned for left side */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+                <div className="space-y-2 bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                  <div className="text-2xl md:text-3xl font-bold text-gray-900" style={{ fontFamily: 'Karla, sans-serif' }}>
+                    51.5M
+                  </div>
+                  <div className="text-gray-700 text-sm" style={{ fontFamily: 'Spectral, serif', fontWeight: '300' }}>
+                    People in Central America
+                  </div>
+                </div>
+                <div className="space-y-2 bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                  <div className="text-2xl md:text-3xl font-bold text-gray-900" style={{ fontFamily: 'Karla, sans-serif' }}>
+                    70%
+                  </div>
+                  <div className="text-gray-700 text-sm" style={{ fontFamily: 'Spectral, serif', fontWeight: '300' }}>
+                    Still use cash for bills
+                  </div>
+                </div>
+                <div className="space-y-2 bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                  <div className="text-2xl md:text-3xl font-bold text-gray-900" style={{ fontFamily: 'Karla, sans-serif' }}>
+                    85%
+                  </div>
+                  <div className="text-gray-700 text-sm" style={{ fontFamily: 'Spectral, serif', fontWeight: '300' }}>
+                    Use WhatsApp daily
+                  </div>
+                </div>
+                <div className="space-y-2 bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                  <div className="text-2xl md:text-3xl font-bold text-blue-600" style={{ fontFamily: 'Karla, sans-serif' }}>
+                    Free
+                  </div>
+                  <div className="text-gray-700 text-sm" style={{ fontFamily: 'Spectral, serif', fontWeight: '300' }}>
+                    For all users, forever
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div className="space-y-2">
-              <div className="text-3xl font-bold text-gray-900" style={{ fontFamily: 'Karla, sans-serif' }}>
-                51.5M
-              </div>
-              <div className="text-gray-600" style={{ fontFamily: 'Spectral, serif', fontWeight: '300' }}>
-                People in Central America
-              </div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-3xl font-bold text-gray-900" style={{ fontFamily: 'Karla, sans-serif' }}>
-                70%
-              </div>
-              <div className="text-gray-600" style={{ fontFamily: 'Spectral, serif', fontWeight: '300' }}>
-                Still use cash for bills
-              </div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-3xl font-bold text-gray-900" style={{ fontFamily: 'Karla, sans-serif' }}>
-                85%
-              </div>
-              <div className="text-gray-600" style={{ fontFamily: 'Spectral, serif', fontWeight: '300' }}>
-                Use WhatsApp daily
-              </div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-3xl font-bold text-blue-600" style={{ fontFamily: 'Karla, sans-serif' }}>
-                Free
-              </div>
-              <div className="text-gray-600" style={{ fontFamily: 'Spectral, serif', fontWeight: '300' }}>
-                For all users, forever
-              </div>
-            </div>
+        {/* Right side indication for clear bird view */}
+        <div className="absolute bottom-10 right-10 text-right z-10">
+          <div className="text-emerald-600 text-sm font-medium" style={{ fontFamily: 'Spectral, serif', fontWeight: '300' }}>
+            Quetzal • Symbol of Freedom 🪶
           </div>
         </div>
       </section>
@@ -1245,8 +1322,8 @@ const ColectaWebsite = () => {
                 <div className="text-2xl font-bold" style={{ fontFamily: 'Karla, sans-serif' }}>
                   Colecta
                 </div>
-                <div className="ml-2 text-sm text-gray-400" style={{ fontFamily: 'Spectral, serif', fontWeight: '300' }}>
-                  Quetzales
+                <div className="ml-2 text-sm text-emerald-400" style={{ fontFamily: 'Spectral, serif', fontWeight: '300' }}>
+                  Quetzales 🪶
                 </div>
               </div>
               <p 
@@ -1257,7 +1334,7 @@ const ColectaWebsite = () => {
                 Free forever, powered by bank partnerships.
               </p>
               <div className="text-sm text-gray-400" style={{ fontFamily: 'Spectral, serif', fontWeight: '300' }}>
-                Made with ❤️ for Central America
+                Made with ❤️ for Central America • Inspired by the Quetzal, symbol of freedom
               </div>
             </div>
 
